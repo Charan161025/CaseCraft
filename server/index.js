@@ -1,6 +1,7 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const dotenv = require("dotenv");
+import cors from "cors";
 
 const rateLimit=require("express-rate-limit");
 
@@ -22,7 +23,13 @@ app.use((req, res, next) => {
   next();
 });
 
-
+app.use(cors({
+  origin: [
+    "http://localhost:5173",
+    "https://casecraft-38sl.onrender.com"
+  ],
+  credentials: true
+}));
 
 
 
