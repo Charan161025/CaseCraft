@@ -25,7 +25,7 @@ app.use(cors({
 
 const limiter = rateLimit({
   windowMs: 15 * 60 * 1000,
-  max: 60,
+  max: 100,
   skip: (req) => req.method === 'OPTIONS',
   standardHeaders: true,
   legacyHeaders: false,
