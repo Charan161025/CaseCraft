@@ -20,7 +20,7 @@ export default function Cart() {
       finally { setLoading(false); }
     };
     fetchCart();
-  }, [navigate]);
+  }, []);
 
   const updateBackend = async (updated) => {
     const token = localStorage.getItem("token");

@@ -6,6 +6,7 @@ const rateLimit = require("express-rate-limit");
 
 const app = express();
 const path = require("path");
+app.set("trust proxy", 1);
 
 app.use((req, res, next) => {
   res.setHeader(
