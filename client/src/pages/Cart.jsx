@@ -12,7 +12,7 @@ export default function Cart() {
       const token = localStorage.getItem("token");
       if (!token) { navigate("/"); return; }
       try {
-        const res = await axios.get("http://localhost:5000/api/auth/get-cart", {
+        const res = await axios.get("/api/auth/get-cart", {
           headers: { Authorization: `Bearer ${token}` }
         });
         setCartItems(res.data.cart || []);
@@ -25,7 +25,7 @@ export default function Cart() {
   const updateBackend = async (updated) => {
     const token = localStorage.getItem("token");
     if (token) {
-      await axios.post("http://localhost:5000/api/auth/save-cart", { cart: updated }, {
+      await axios.post("/api/auth/save-cart", { cart: updated }, {
         headers: { Authorization: `Bearer ${token}` }
       });
     }

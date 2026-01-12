@@ -8,7 +8,7 @@ export default function Logout() {
         const token = localStorage.getItem("token");
         if (token) {
           
-          await axios.post("http://localhost:5000/api/auth/logout", {}, {
+          await axios.post("/api/auth/logout", {}, {
             headers: { Authorization: `Bearer ${token}` }
           });
         }

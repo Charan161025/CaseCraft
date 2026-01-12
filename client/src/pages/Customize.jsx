@@ -55,7 +55,7 @@ export default function Customize() {
     const token = localStorage.getItem("token");
     if (token) {
       try {
-        await axios.post("http://localhost:5000/api/auth/save-cart", 
+        await axios.post("/api/auth/save-cart", 
           { cart: updatedCart }, 
           { headers: { Authorization: `Bearer ${token}` } }
         );

@@ -14,7 +14,7 @@ export default function Checkout() {
       if (!token) return navigate("/");
       
       try {
-        const res = await axios.get("http://localhost:5000/api/auth/get-cart", {
+        const res = await axios.get("/api/auth/get-cart", {
           headers: { Authorization: `Bearer ${token}` }
         });
         setCartItems(res.data.cart || []);
@@ -33,7 +33,7 @@ export default function Checkout() {
     try {
       
       const orderRes = await axios.post(
-        "http://localhost:5000/api/auth/create-razorpay-order",
+        "/api/auth/create-razorpay-order",
         { amount: totalAmount },
         { headers: { Authorization: `Bearer ${token}` } }
       );
@@ -52,7 +52,7 @@ export default function Checkout() {
          
           try {
             await axios.post(
-              "http://localhost:5000/api/auth/place-order",
+              "/api/auth/place-order",
               {
                 razorpay_order_id: response.razorpay_order_id,
                 razorpay_payment_id: response.razorpay_payment_id,
